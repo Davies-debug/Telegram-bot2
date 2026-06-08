@@ -3,6 +3,7 @@ import requests
 TOKEN = "8808320751:AAF2CgbA6Yszn8kTP2nJMTiT8r1efbff-_M"
 
 CHAT_IDS = [
+    "@testbotsp",
     "@ChezMendoza",
     "@avietalpacino_pub",
     "@quadblade",
@@ -30,7 +31,7 @@ CHAT_IDS = [
     "@paradisduscam"
 ]
 
-message = """Marre de galerer toute la journee? 
+message = """Marre de galerer toute la journee?
 Le canal d Arjeen est votre solution !
 
 PAS ENORMEMENT DE PREREQUIS NECESSAIRES

@@ -32,41 +32,12 @@ CHAT_IDS = [
     "@paradisduscam"
 ]
 
-message = """Marre de ne pas savoir c**all ou poser des ch*eques, le canal de Arjeen est votre solution.
+message = u"""Marre de ne pas savoir c**all ou poser des ch*eques, le canal de Arjeen est votre solution. \U0001F624
 
-<b>PAS ENORMEMENT DE PREREQUIS NECESSAIRES</b>
-<b>SUPPORT REACTIF 24/7</b>
+\U0001F381 <b>PAS ENORMEMENT DE PREREQUIS NECESSAIRES</b>
+\U0001F4DE <b>SUPPORT REACTIF 24/7</b>
 
 <blockquote>FORMATIONS INCLUS</blockquote>
 
 - Formation ch*eque (suivi complet)
-- Formation c**all (suivi complet)
-- Formation spam (suivi complet)
-- Tech Iphone (suivi accompagne)
-- Tech amex (suivi complet)
-- Tech sncf - 90% (forma complete)
-
-<blockquote>COMBIEN JE PEUX FAIRE ?</blockquote>
-
-- Investissement : entre 50 - 150 euros
-- Gains potentiels : 1-10k/day"""
-
-keyboard = {
-    "inline_keyboard": [
-        [{"text": "SUPPORT", "url": "https://t.me/arjeenuhq"}],
-        [{"text": "CANAL 1", "url": "https://t.me/arjeenasauter"}],
-        [{"text": "CANAL 2", "url": "https://t.me/arjeenvouches1"}]
-    ]
-}
-
-for chat_id in CHAT_IDS:
-    requests.post(
-        f"https://api.telegram.org/bot{TOKEN}/sendMessage",
-        data={
-            "chat_id": chat_id,
-            "text": message,
-            "parse_mode": "HTML",
-            "reply_markup": json.dumps(keyboard)
-        }
-    )
-    print(f"Message envoye a {chat_id}")
+- Formation c**

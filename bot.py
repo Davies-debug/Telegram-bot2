@@ -1,8 +1,10 @@
 import asyncio
 from telethon import TelegramClient
+from telethon.sessions import StringSession
 
 API_ID = 37266230
 API_HASH = "c9f95b37dd021863d56426d500cc7227"
+SESSION_STRING = "METS_TA_SESSION_STRING_ICI"
 
 CHAT_IDS = [
     "@ChezMendoza",
@@ -35,7 +37,7 @@ CHAT_IDS = [
 SOURCE_CHANNEL = "@testbotsp"
 
 async def main():
-    async with TelegramClient("session", API_ID, API_HASH) as client:
+    async with TelegramClient(StringSession(SESSION_STRING), API_ID, API_HASH) as client:
         messages = await client.get_messages(SOURCE_CHANNEL, limit=1)
         last_message = messages[0]
         for chat_id in CHAT_IDS:

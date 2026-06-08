@@ -31,7 +31,13 @@ CHAT_IDS = [
     "@chezlenfoiree",
     "@in_heisenberg_house",
     "@CvbienspasserUHQ",
-    "@paradisduscam"
+    "@paradisduscam",
+    "@blackwolfgroupe",
+    "@chezmyflunch",
+    "@vagabod",
+    "@commecheztoi",
+    "@LaLoiDuTalion",
+    "@chezlocalbusnessChat"
 ]
 
 SOURCE_CHANNEL = -1004291062323

@@ -32,12 +32,39 @@ CHAT_IDS = [
     "@paradisduscam"
 ]
 
-message = u"""Marre de ne pas savoir c**all ou poser des ch*eques, le canal de Arjeen est votre solution. \U0001F624
+message = (
+    "Marre de ne pas savoir c**all ou poser des ch*eques, "
+    "le canal de Arjeen est votre solution. \U0001F624\n\n"
+    "\U0001F381 <b>PAS ENORMEMENT DE PREREQUIS NECESSAIRES</b>\n"
+    "\U0001F4DE <b>SUPPORT REACTIF 24/7</b>\n\n"
+    "<blockquote>FORMATIONS INCLUS</blockquote>\n\n"
+    "- Formation ch*eque (suivi complet)\n"
+    "- Formation c**all (suivi complet)\n"
+    "- Formation spam (suivi complet)\n"
+    "- Tech Iphone (suivi accompagne)\n"
+    "- Tech amex (suivi complet)\n"
+    "- Tech sncf - 90% (forma complete)\n\n"
+    "<blockquote>COMBIEN JE PEUX FAIRE ?</blockquote>\n\n"
+    "\U0001F4B6 Investissement : entre 50 - 150 euros\n"
+    "\U0001F4B0 Gains potentiels : 1-10k/day"
+)
 
-\U0001F381 <b>PAS ENORMEMENT DE PREREQUIS NECESSAIRES</b>
-\U0001F4DE <b>SUPPORT REACTIF 24/7</b>
+keyboard = {
+    "inline_keyboard": [
+        [{"text": "SUPPORT", "url": "https://t.me/arjeenuhq"}],
+        [{"text": "CANAL 1", "url": "https://t.me/arjeenasauter"}],
+        [{"text": "CANAL 2", "url": "https://t.me/arjeenvouches1"}]
+    ]
+}
 
-<blockquote>FORMATIONS INCLUS</blockquote>
-
-- Formation ch*eque (suivi complet)
-- Formation c**
+for chat_id in CHAT_IDS:
+    requests.post(
+        f"https://api.telegram.org/bot{TOKEN}/sendMessage",
+        data={
+            "chat_id": chat_id,
+            "text": message,
+            "parse_mode": "HTML",
+            "reply_markup": json.dumps(keyboard)
+        }
+    )
+    print(f"Message envoye a {chat_id}")

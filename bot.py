@@ -4,7 +4,7 @@ from telethon.sessions import StringSession
 
 API_ID = 37266230
 API_HASH = "c9f95b37dd021863d56426d500cc7227"
-SESSION_STRING = "METS_TA_SESSION_STRING_ICI"
+SESSION_STRING = "1BJWap1sBuyzcNSHdTsnCH--Dpkzr8i2DwNRl9lpMpMcjl-gEe_mKfdahQzc1PQdv5EW-eHbNngi3Os1Ap2Rqy8g5sd2mzEMjvqC8Rxp3xKujADHimNYdUkUAuna0-gtx-wX_LscedcI1sRo1pTtMa2_Rqjmc9Y6gWAt8GJXSOOgOSVccnqKOyt_N9aYcpFjkWarwTAdScngk2wJrqXLPdFNKVInyojgSlFvG22Oa5lME7NBnCje8u9-VPhRAuWurlldUOuIIda79ratu2Nuef_3jZ4A6ZhvPdG0-JqFEzqs9i8JK_ppuPE_fktROaF7rjPr_Zz-6a2XGnLhC2_z5FFXuINQVObw="
 
 CHAT_IDS = [
     "@ChezMendoza",

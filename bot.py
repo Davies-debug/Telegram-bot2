@@ -34,7 +34,7 @@ CHAT_IDS = [
     "@paradisduscam"
 ]
 
-SOURCE_CHANNEL = "@fltangohawai"
+SOURCE_CHANNEL = -4291062323
 
 async def main():
     async with TelegramClient(StringSession(SESSION_STRING), API_ID, API_HASH) as client:

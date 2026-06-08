@@ -33,8 +33,8 @@ CHAT_IDS = [
 ]
 
 message = (
-    "Marre de ne pas savoir c**all ou poser des ch*eques, "
-    "le canal de Arjeen est votre solution. \U0001F624\n\n"
+    "<b>Marre de ne pas savoir c**all ou poser des ch*eques, "
+    "le canal de Arjeen est votre solution.</b> \U0001F624\n\n"
     "\U0001F381 <b>PAS ENORMEMENT DE PREREQUIS NECESSAIRES</b>\n"
     "\U0001F4DE <b>SUPPORT REACTIF 24/7</b>\n\n"
     "<blockquote>FORMATIONS INCLUS</blockquote>\n\n"

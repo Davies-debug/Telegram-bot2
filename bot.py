@@ -4,7 +4,7 @@ import json
 TOKEN = "8808320751:AAF2CgbA6Yszn8kTP2nJMTiT8r1efbff-_M"
 
 CHAT_IDS = [
-    "@testbotsp",
+    "@fltangohawai",
     "@ChezMendoza",
     "@avietalpacino_pub",
     "@quadblade",

@@ -1,12 +1,10 @@
-import asyncio
-from telethon import TelegramClient
-from telethon.sessions import StringSession
+import requests
+import json
 
-API_ID = 37266230
-API_HASH = "c9f95b37dd021863d56426d500cc7227"
-SESSION_STRING = "1BJWap1sBuyzcNSHdTsnCH--Dpkzr8i2DwNRl9lpMpMcjl-gEe_mKfdahQzc1PQdv5EW-eHbNngi3Os1Ap2Rqy8g5sd2mzEMjvqC8Rxp3xKujADHimNYdUkUAuna0-gtx-wX_LscedcI1sRo1pTtMa2_Rqjmc9Y6gWAt8GJXSOOgOSVccnqKOyt_N9aYcpFjkWarwTAdScngk2wJrqXLPdFNKVInyojgSlFvG22Oa5lME7NBnCje8u9-VPhRAuWurlldUOuIIda79ratu2Nuef_3jZ4A6ZhvPdG0-JqFEzqs9i8JK_ppuPE_fktROaF7rjPr_Zz-6a2XGnLhC2_z5FFXuINQVObw="
+TOKEN = "8808320751:AAF2CgbA6Yszn8kTP2nJMTiT8r1efbff-_M"
 
 CHAT_IDS = [
+    "@testbotsp",
     "@ChezMendoza",
     "@avietalpacino_pub",
     "@quadblade",
@@ -34,17 +32,39 @@ CHAT_IDS = [
     "@paradisduscam"
 ]
 
-SOURCE_CHANNEL = "@fltangohawai"
+message = (
+    "<b>Marre de ne pas savoir c**all ou poser des ch*eques, "
+    "le canal de Arjeen est votre solution.</b> \U0001F624\n\n"
+    "\U0001F381 <b>PAS ENORMEMENT DE PREREQUIS NECESSAIRES</b>\n"
+    "\U0001F4DE <b>SUPPORT REACTIF 24/7</b>\n\n"
+    "<blockquote>FORMATIONS INCLUS</blockquote>\n\n"
+    "- Formation ch*eque (suivi complet)\n"
+    "- Formation c**all (suivi complet)\n"
+    "- Formation spam (suivi complet)\n"
+    "- Tech Iphone (suivi accompagne)\n"
+    "- Tech amex (suivi complet)\n"
+    "- Tech sncf - 90% (forma complete)\n\n"
+    "<blockquote>COMBIEN JE PEUX FAIRE ?</blockquote>\n\n"
+    "\U0001F4B6 Investissement : entre 50 - 150 euros\n"
+    "\U0001F4B0 Gains potentiels : 1-10k/day"
+)
 
-async def main():
-    async with TelegramClient(StringSession(SESSION_STRING), API_ID, API_HASH) as client:
-        messages = await client.get_messages(SOURCE_CHANNEL, limit=1)
-        last_message = messages[0]
-        for chat_id in CHAT_IDS:
-            try:
-                await client.forward_messages(chat_id, last_message)
-                print(f"Message transfere a {chat_id}")
-            except Exception as e:
-                print(f"Erreur pour {chat_id}: {e}")
+keyboard = {
+    "inline_keyboard": [
+        [{"text": "SUPPORT", "url": "https://t.me/arjeenuhq"}],
+        [{"text": "CANAL 1", "url": "https://t.me/arjeenasauter"}],
+        [{"text": "CANAL 2", "url": "https://t.me/arjeenvouches1"}]
+    ]
+}
 
-asyncio.run(main())
+for chat_id in CHAT_IDS:
+    requests.post(
+        f"https://api.telegram.org/bot{TOKEN}/sendMessage",
+        data={
+            "chat_id": chat_id,
+            "text": message,
+            "parse_mode": "HTML",
+            "reply_markup": json.dumps(keyboard)
+        }
+    )
+    print(f"Message envoye a {chat_id}")

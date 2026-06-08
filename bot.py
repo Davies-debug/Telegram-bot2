@@ -1,4 +1,5 @@
 import requests
+import json
 
 TOKEN = "8808320751:AAF2CgbA6Yszn8kTP2nJMTiT8r1efbff-_M"
 
@@ -33,10 +34,9 @@ CHAT_IDS = [
 
 IMAGE_URL = "https://i.ibb.co/9H9W2Bht/image.jpg"
 
-message = u"""
-\U0001F525 <b>Marre de galerer toute la journee?</b> \U0001F525
+message = u"""\U0001F525 <b>Marre de galerer toute la journee?</b> \U0001F525
 
-\U0001F4AA Le canal d Arjeen est votre solution !
+\U0001F4AA Le canal de Arjeen est votre solution !
 
 \U00002705 <b>PAS ENORMEMENT DE PREREQUIS NECESSAIRES</b>
 \U0001F5E3 <b>SUPPORT REACTIF 24/7</b>
@@ -51,20 +51,27 @@ message = u"""
 
 <blockquote>\U0001F4B0 COMBIEN JE PEUX FAIRE?
 \U0001F4B6 Investissement : entre 50 - 150 euros
-\U0001F4B8 Gains potentiels: 1-10k/day</blockquote>
+\U0001F4B8 Gains potentiels: 1-10k/day</blockquote>"""
 
-\U0001F4F2 CONTACT : @arjeenuhq
-\U0001F4E2 CANAL : @arjeenasauter
-\U0001F3C6 CANAL VOUCHES : @arjeenvouches1"""
+keyboard = {
+    "inline_keyboard": [
+        [{"text": "SUPPORT", "url": "https://t.me/arjeenuhq"}],
+        [{"text": "CANAL 1", "url": "https://t.me/arjeenasauter"}],
+        [{"text": "CANAL 2", "url": "https://t.me/arjeenvouches1"}]
+    ]
+}
 
 for chat_id in CHAT_IDS:
     requests.post(
-        f"https://api.telegram.org/bot{TOKEN}/sendPhoto",
+        f"https://api.telegram.org/bot{TOKEN}/sendDocument",
         data={
             "chat_id": chat_id,
-            "photo": IMAGE_URL,
             "caption": message,
-            "parse_mode": "HTML"
+            "parse_mode": "HTML",
+            "reply_markup": json.dumps(keyboard)
+        },
+        files={
+            "document": ("image.jpg", requests.get(IMAGE_URL).content, "image/jpeg")
         }
     )
     print(f"Message envoye a {chat_id}")

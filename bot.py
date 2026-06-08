@@ -26,7 +26,7 @@ CHAT_ID = "@CvbienspasserUHQ" # ID du groupe ou canal
 CHAT_ID = "@paradisduscam" # ID du groupe ou canal
 
 
-message = "Marre de galérer toute la journée? 😮‍💨
+message = """Marre de galérer toute la journée? 😮‍💨"""
 Le canal d’Arjeen est votre solution !
 
 🎁 PAS ÉNORMÉMENT DE PRÉREQUIS NÉCESSAIRES

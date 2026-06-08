@@ -37,7 +37,13 @@ CHAT_IDS = [
     "@vagabod",
     "@commecheztoi",
     "@LaLoiDuTalion",
-    "@chezlocalbusnessChat"
+    "@chezlocalbusnessChat",
+    "@Aidefinaciere",
+    "@CHEZSMAKA",
+    "@aidefinancieres",
+    "@chezdalton",
+    "@chezbenzema",
+    "@cheznyzoo"
 ]
 
 SOURCE_CHANNEL = -1004291062323

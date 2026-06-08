@@ -31,13 +31,17 @@ CHAT_IDS = [
     "@paradisduscam"
 ]
 
-message = """Marre de galerer toute la journee?
-Le canal d Arjeen est votre solution !
+IMAGE_URL = "https://i.ibb.co/HvDPwwk/image.jpg"
 
-PAS ENORMEMENT DE PREREQUIS NECESSAIRES
-SUPPORT REACTIF 24/7
+message = u"""
+\U0001F525 Marre de galerer toute la journee? \U0001F525
 
-FORMATIONS INCLUS
+Le canal d Arjeen est votre solution ! \U0001F4AA
+
+\U00002705 PAS ENORMEMENT DE PREREQUIS NECESSAIRES
+\U0001F5E3 SUPPORT REACTIF 24/7
+
+\U0001F4DA FORMATIONS INCLUS
 - Formation cheque (suivi complet)
 - Formation call (suivi complet)
 - Formation spam (suivi complet)
@@ -45,20 +49,21 @@ FORMATIONS INCLUS
 - Tech amex (suivi complet)
 - Tech sncf - 90% (forma complete)
 
-COMBIEN JE PEUX FAIRE?
-Investissement : entre 50 - 150 euros
-Gains potentiels: 1-10k/day
+\U0001F4B0 COMBIEN JE PEUX FAIRE?
+\U0001F4B6 Investissement : entre 50 - 150 euros
+\U0001F4B8 Gains potentiels: 1-10k/day
 
-CONTACT : @arjeenuhq
-CANAL : @arjeenasauter
-CANAL VOUCHES : @arjeenvouches1"""
+\U0001F4F2 CONTACT : @arjeenuhq
+\U0001F4E2 CANAL : @arjeenasauter
+\U0001F3C6 CANAL VOUCHES : @arjeenvouches1"""
 
 for chat_id in CHAT_IDS:
     requests.post(
-        f"https://api.telegram.org/bot{TOKEN}/sendMessage",
+        f"https://api.telegram.org/bot{TOKEN}/sendPhoto",
         data={
             "chat_id": chat_id,
-            "text": message
+            "photo": IMAGE_URL,
+            "caption": message
         }
     )
     print(f"Message envoye a {chat_id}")

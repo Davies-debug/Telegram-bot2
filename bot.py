@@ -32,40 +32,39 @@ CHAT_IDS = [
     "@paradisduscam"
 ]
 
-IMAGE_URL = "https://i.ibb.co/9H9W2Bht/image.jpg"
+message = """Marre de ne pas savoir c**all ou poser des ch*eques, le canal de Arjeen est votre solution.
 
-message = u"""\U0001F525 <b>Marre de ne pas faire d argent ? Le canal de Arjeen est votre solution</b> \U0001F525
+<b>PAS ENORMEMENT DE PREREQUIS NECESSAIRES</b>
+<b>SUPPORT REACTIF 24/7</b>
 
-\U00002705 <b>PAS ENORMEMENT DE PREREQUIS NECESSAIRES</b>
-\U0001F5E3 <b>SUPPORT REACTIF 24/7</b>
+<blockquote>FORMATIONS INCLUS</blockquote>
 
-<blockquote>\U0001F4DA FORMATIONS INCLUS
-- \U0001F4DD Formation cheque (suivi complet)
-- \U0001F4DE Formation call (suivi complet)
-- \U0001F4E7 Formation spam (suivi complet)
-- \U0001F4F1 Tech Iphone (suivi accompagne)
-- \U0001F4B3 Tech amex (suivi complet)
-- \U0001F682 Tech sncf - 90% (forma complete)</blockquote>
+- Formation ch*eque (suivi complet)
+- Formation c**all (suivi complet)
+- Formation spam (suivi complet)
+- Tech Iphone (suivi accompagne)
+- Tech amex (suivi complet)
+- Tech sncf - 90% (forma complete)
 
-\U0001F4B0 COMBIEN JE PEUX FAIRE?
-\U0001F4B6 Investissement : entre 50 - 150 euros
-\U0001F4B8 Gains potentiels: 1-10k/day"""
+<blockquote>COMBIEN JE PEUX FAIRE ?</blockquote>
+
+- Investissement : entre 50 - 150 euros
+- Gains potentiels : 1-10k/day"""
 
 keyboard = {
     "inline_keyboard": [
-        [{"text": "\U0001F4F2 SUPPORT", "url": "https://t.me/arjeenuhq"}],
-        [{"text": "\U0001F4E2 CANAL 1", "url": "https://t.me/arjeenasauter"}],
-        [{"text": "\U0001F3C6 CANAL 2", "url": "https://t.me/arjeenvouches1"}]
+        [{"text": "SUPPORT", "url": "https://t.me/arjeenuhq"}],
+        [{"text": "CANAL 1", "url": "https://t.me/arjeenasauter"}],
+        [{"text": "CANAL 2", "url": "https://t.me/arjeenvouches1"}]
     ]
 }
 
 for chat_id in CHAT_IDS:
     requests.post(
-        f"https://api.telegram.org/bot{TOKEN}/sendPhoto",
+        f"https://api.telegram.org/bot{TOKEN}/sendMessage",
         data={
             "chat_id": chat_id,
-            "photo": IMAGE_URL,
-            "caption": message,
+            "text": message,
             "parse_mode": "HTML",
             "reply_markup": json.dumps(keyboard)
         }

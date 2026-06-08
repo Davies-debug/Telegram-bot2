@@ -1,57 +1,63 @@
+import requests
+
 TOKEN = "8808320751:AAF2CgbA6Yszn8kTP2nJMTiT8r1efbff-_M"
-CHAT_ID = "@ChezMendoza"  # ID du groupe ou canal
-CHAT_ID = "@avietalpacino_pub". # ID du groupe ou canal
-CHAT_ID = "@quadblade" # ID du groupe ou canal
-CHAT_ID = "@chezkanoe" # ID du groupe ou canal
-CHAT_ID = "@chezyatsu" # ID du groupe ou canal
-CHAT_ID = "@chezalpha" # ID du groupe ou canal
-CHAT_ID = "@chezz9" # ID du groupe ou canal
-CHAT_ID = "@chezphineasesimsfr" # ID du groupe ou canal
-CHAT_ID = "@chezdsavv" # ID du groupe ou canal
-CHAT_ID = "@chezrass" # ID du groupe ou canal
-CHAT_ID = "@chezdh" # ID du groupe ou canal
-CHAT_ID = "@ChezObsidianV2" # ID du groupe ou canal
-CHAT_ID = "@chezqui" # ID du groupe ou canal
-CHAT_ID = "@creditviro261" # ID du groupe ou canal
-CHAT_ID = "@pedrofabiente" # ID du groupe ou canal
-CHAT_ID = "@chezZurgkennedy" # ID du froupe ou canal
-CHAT_ID = "@plans_sous92" # ID du groupe ou canal
-CHAT_ID = "@Chez_DuckLand" # ID du groupe ou canal
-CHAT_ID = "@ChezHouse" # ID du groupe ou canal
-CHAT_ID = "@chezlasolucee" # ID du groupe ou canal
-CHAT_ID = "@onpaiepaslatva" # ID du groupe ou canal
-CHAT_ID = "@chezlenfoiree" # ID du groupe ou canal
-CHAT_ID = "in_heisenberg_house" # ID du groupe ou canal
-CHAT_ID = "@CvbienspasserUHQ" # ID du groupe ou canal
-CHAT_ID = "@paradisduscam" # ID du groupe ou canal
 
+CHAT_IDS = [
+    "@ChezMendoza",
+    "@avietalpacino_pub",
+    "@quadblade",
+    "@chezkanoe",
+    "@chezyatsu",
+    "@chezalpha",
+    "@chezz9",
+    "@chezphineasesimsfr",
+    "@chezdsavv",
+    "@chezrass",
+    "@chezdh",
+    "@ChezObsidianV2",
+    "@chezqui",
+    "@creditviro261",
+    "@pedrofabiente",
+    "@chezZurgkennedy",
+    "@plans_sous92",
+    "@Chez_DuckLand",
+    "@ChezHouse",
+    "@chezlasolucee",
+    "@onpaiepaslatva",
+    "@chezlenfoiree",
+    "@in_heisenberg_house",
+    "@CvbienspasserUHQ",
+    "@paradisduscam"
+]
 
-message = """Marre de galérer toute la journée? 😮‍💨"""
-Le canal d'Arjeen est votre solution !
+message = """Marre de galerer toute la journee? 
+Le canal d Arjeen est votre solution !
 
-🎁 PAS ÉNORMÉMENT DE PRÉREQUIS NÉCESSAIRES
-🗣️ SUPPORT REACTIF 24/7
+PAS ENORMEMENT DE PREREQUIS NECESSAIRES
+SUPPORT REACTIF 24/7
 
 FORMATIONS INCLUS
-- Formation ch*èque (suivi complet)
-- Formation c**all (suivi complet)
+- Formation cheque (suivi complet)
+- Formation call (suivi complet)
 - Formation spam (suivi complet)
-- Tech Iphone (suivi accompagné)
+- Tech Iphone (suivi accompagne)
 - Tech amex (suivi complet)
-- Tech sncf - 90% (forma complète)
+- Tech sncf - 90% (forma complete)
 
 COMBIEN JE PEUX FAIRE?
-💶 Investissement : ~ entre (50€ - 150€)
-💰 Gains potentiels: ~1-10k/day
+Investissement : entre 50 - 150 euros
+Gains potentiels: 1-10k/day
 
 CONTACT : @arjeenuhq
 CANAL : @arjeenasauter
-CANAL VOUCH’S : @arjeenvouches1"
+CANAL VOUCHES : @arjeenvouches1"""
 
-requests.post(
-    f"https://api.telegram.org/bot{TOKEN}/sendMessage",
-    data={
-        "chat_id": CHAT_ID,
-        "text": message
-    }
-)
+for chat_id in CHAT_IDS:
+    requests.post(
+        f"https://api.telegram.org/bot{TOKEN}/sendMessage",
+        data={
+            "chat_id": chat_id,
+            "text": message
+        }
+    )
+    print(f"Message envoye a {chat_id}")

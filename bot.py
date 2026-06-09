@@ -43,7 +43,17 @@ CHAT_IDS = [
     "@aidefinancieres",
     "@chezdalton",
     "@chezbenzema",
-    "@cheznyzoo"
+    "@cheznyzoo",
+    "@chezmekoi",
+    "@ChezYtem",
+    "@xbetcoupon90",
+    "@groupeinfopositive",
+    "@argentgratuitparrainage",
+    "@prronooos",
+    "@LACRIZ_OMIC",
+    "@chezelea",
+    "@chezelproffesor75",
+    "@chezkaisencard"
 ]
 
 SOURCE_CHANNEL = -1004291062323

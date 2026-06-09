@@ -66,7 +66,9 @@ async def main():
             try:
                 await client.forward_messages(chat_id, last_message)
                 print(f"Message transfere a {chat_id}")
+                await asyncio.sleep(5)
             except Exception as e:
                 print(f"Erreur pour {chat_id}: {e}")
+                await asyncio.sleep(5)
 
 asyncio.run(main())

@@ -56,32 +56,28 @@ CHAT_IDS = [
     "@chezkaisencard"
 ]
 
-SOURCE_CHANNEL = -1004291062323
+NEW_TEXT = "Canal de '"
 
-async def send_messages(client):
-    try:
-        messages = await client.get_messages(SOURCE_CHANNEL, limit=1)
-        if not messages:
-            print("Aucun message trouve dans le canal source")
-            return
-        last_message = messages[0]
-        for chat_id in CHAT_IDS:
-            try:
-                await client.forward_messages(chat_id, last_message)
-                print(f"Message transfere a {chat_id}")
-            except Exception as e:
-                print(f"Erreur pour {chat_id}: {e}")
-            await asyncio.sleep(10)
-    except Exception as e:
-        print(f"Erreur canal source: {e}")
+SOURCE_CHANNEL = -1004291062323
 
 async def main():
     async with TelegramClient(StringSession(SESSION_STRING), API_ID, API_HASH) as client:
-        print("Bot demarre...")
-        while True:
-            print("Envoi des messages...")
-            await send_messages(client)
-            print("Attente de 9 minutes...")
-            await asyncio.sleep(9 * 60)
+        print("Recherche du message original...")
+        source_messages = await client.get_messages(SOURCE_CHANNEL, limit=1)
+        if not source_messages:
+            print("Aucun message trouve")
+            return
+        original_message = source_messages[0]
+
+        for chat_id in CHAT_IDS:
+            try:
+                async for message in client.iter_messages(chat_id, limit=50):
+                    if message.fwd_from and message.fwd_from.channel_id == abs(SOURCE_CHANNEL):
+                        await client.edit_message(chat_id, message.id, NEW_TEXT)
+                        print(f"Message modifie dans {chat_id}")
+                        break
+            except Exception as e:
+                print(f"Erreur pour {chat_id}: {e}")
+            await asyncio.sleep(5)
 
 asyncio.run(main())

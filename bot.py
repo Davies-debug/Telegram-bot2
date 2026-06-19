@@ -56,28 +56,27 @@ CHAT_IDS = [
     "@chezkaisencard"
 ]
 
-NEW_TEXT = "Canal de '"
-
 SOURCE_CHANNEL = -1004291062323
+NEW_CAPTION = "Canal du boss"
 
 async def main():
     async with TelegramClient(StringSession(SESSION_STRING), API_ID, API_HASH) as client:
-        print("Recherche du message original...")
-        source_messages = await client.get_messages(SOURCE_CHANNEL, limit=1)
-        if not source_messages:
-            print("Aucun message trouve")
-            return
-        original_message = source_messages[0]
-
+        print("Modification des messages...")
         for chat_id in CHAT_IDS:
             try:
                 async for message in client.iter_messages(chat_id, limit=50):
                     if message.fwd_from and message.fwd_from.channel_id == abs(SOURCE_CHANNEL):
-                        await client.edit_message(chat_id, message.id, NEW_TEXT)
+                        await client.edit_message(
+                            chat_id,
+                            message.id,
+                            text=NEW_CAPTION,
+                            buttons=None
+                        )
                         print(f"Message modifie dans {chat_id}")
                         break
             except Exception as e:
                 print(f"Erreur pour {chat_id}: {e}")
             await asyncio.sleep(5)
+        print("Termine!")
 
 asyncio.run(main())

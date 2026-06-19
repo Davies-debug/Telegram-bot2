@@ -1,10 +1,8 @@
-import asyncio
-from telethon import TelegramClient
-from telethon.sessions import StringSession
+import requests
+import json
+import time
 
-API_ID = 37266230
-API_HASH = "c9f95b37dd021863d56426d500cc7227"
-SESSION_STRING = "1BJWap1sBuyzcNSHdTsnCH--Dpkzr8i2DwNRl9lpMpMcjl-gEe_mKfdahQzc1PQdv5EW-eHbNngi3Os1Ap2Rqy8g5sd2mzEMjvqC8Rxp3xKujADHimNYdUkUAuna0-gtx-wX_LscedcI1sRo1pTtMa2_Rqjmc9Y6gWAt8GJXSOOgOSVccnqKOyt_N9aYcpFjkWarwTAdScngk2wJrqXLPdFNKVInyojgSlFvG22Oa5lME7NBnCje8u9-VPhRAuWurlldUOuIIda79ratu2Nuef_3jZ4A6ZhvPdG0-JqFEzqs9i8JK_ppuPE_fktROaF7rjPr_Zz-6a2XGnLhC2_z5FFXuINQVObw="
+TOKEN = "8808320751:AAF2CgbA6Yszn8kTP2nJMTiT8r1efbff-_M"
 
 CHAT_IDS = [
     "@ChezMendoza",
@@ -53,34 +51,24 @@ CHAT_IDS = [
     "@LACRIZ_OMIC",
     "@chezelea",
     "@chezelproffesor75",
-    "@chezkaisencard"
+    "@chezkaisencard",
+    -1004291062323
 ]
 
+MESSAGE_ID = 21
 NEW_CAPTION = "Canal du boss"
 
-async def main():
-    async with TelegramClient(StringSession(SESSION_STRING), API_ID, API_HASH) as client:
-        print("Modification des messages...")
-        for chat_id in CHAT_IDS:
-            try:
-                async for message in client.iter_messages(chat_id, limit=100):
-                    if message.buttons or message.media:
-                        try:
-                            await client.edit_message(
-                                chat_id,
-                                message.id,
-                                text=NEW_CAPTION,
-                                buttons=None,
-                                file=message.media
-                            )
-                            print(f"Message modifie dans {chat_id}")
-                            break
-                        except Exception as e:
-                            print(f"Erreur edition {chat_id}: {e}")
-                            break
-            except Exception as e:
-                print(f"Erreur pour {chat_id}: {e}")
-            await asyncio.sleep(5)
-        print("Termine!")
+for chat_id in CHAT_IDS:
+    result = requests.post(
+        f"https://api.telegram.org/bot{TOKEN}/editMessageCaption",
+        data={
+            "chat_id": chat_id,
+            "message_id": MESSAGE_ID,
+            "caption": NEW_CAPTION,
+            "reply_markup": json.dumps({"inline_keyboard": []})
+        }
+    ).json()
+    print(f"{chat_id}: {result}")
+    time.sleep(3)
 
-asyncio.run(main())
+print("Termine!")

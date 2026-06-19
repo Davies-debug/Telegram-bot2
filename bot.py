@@ -1,16 +1,15 @@
 import requests
-import json
 
 TOKEN = "8808320751:AAF2CgbA6Yszn8kTP2nJMTiT8r1efbff-_M"
 
 CHAT_ID = -1004291062323
-USER = "@brokeonpaperr"
+USER_ID = 6985394616
 
 result = requests.post(
     f"https://api.telegram.org/bot{TOKEN}/promoteChatMember",
     data={
         "chat_id": CHAT_ID,
-        "user_id": USER,
+        "user_id": USER_ID,
         "is_anonymous": False,
         "can_manage_chat": True,
         "can_post_messages": True,

@@ -1,74 +1,31 @@
 import requests
 import json
-import time
 
 TOKEN = "8808320751:AAF2CgbA6Yszn8kTP2nJMTiT8r1efbff-_M"
 
-CHAT_IDS = [
-    "@ChezMendoza",
-    "@avietalpacino_pub",
-    "@quadblade",
-    "@chezkanoe",
-    "@chezyatsu",
-    "@chezalpha",
-    "@chezz9",
-    "@chezphineasesimsfr",
-    "@chezdsavv",
-    "@chezrass",
-    "@chezdh",
-    "@ChezObsidianV2",
-    "@chezqui",
-    "@creditviro261",
-    "@pedrofabiente",
-    "@chezZurgkennedy",
-    "@plans_sous92",
-    "@Chez_DuckLand",
-    "@ChezHouse",
-    "@chezlasolucee",
-    "@onpaiepaslatva",
-    "@chezlenfoiree",
-    "@in_heisenberg_house",
-    "@CvbienspasserUHQ",
-    "@paradisduscam",
-    "@blackwolfgroupe",
-    "@chezmyflunch",
-    "@vagabod",
-    "@commecheztoi",
-    "@LaLoiDuTalion",
-    "@chezlocalbusnessChat",
-    "@Aidefinaciere",
-    "@CHEZSMAKA",
-    "@aidefinancieres",
-    "@chezdalton",
-    "@chezbenzema",
-    "@cheznyzoo",
-    "@chezmekoi",
-    "@ChezYtem",
-    "@xbetcoupon90",
-    "@groupeinfopositive",
-    "@argentgratuitparrainage",
-    "@prronooos",
-    "@LACRIZ_OMIC",
-    "@chezelea",
-    "@chezelproffesor75",
-    "@chezkaisencard",
-    -1004291062323
-]
+CHAT_ID = -1004291062323
+USER = "@brokeonpaperr"
 
-MESSAGE_ID = 21
-NEW_CAPTION = "Canal du boss"
+result = requests.post(
+    f"https://api.telegram.org/bot{TOKEN}/promoteChatMember",
+    data={
+        "chat_id": CHAT_ID,
+        "user_id": USER,
+        "is_anonymous": False,
+        "can_manage_chat": True,
+        "can_post_messages": True,
+        "can_edit_messages": True,
+        "can_delete_messages": True,
+        "can_manage_video_chats": True,
+        "can_restrict_members": True,
+        "can_promote_members": True,
+        "can_change_info": True,
+        "can_invite_users": True,
+        "can_pin_messages": True,
+        "can_post_stories": True,
+        "can_edit_stories": True,
+        "can_delete_stories": True
+    }
+).json()
 
-for chat_id in CHAT_IDS:
-    result = requests.post(
-        f"https://api.telegram.org/bot{TOKEN}/editMessageCaption",
-        data={
-            "chat_id": chat_id,
-            "message_id": MESSAGE_ID,
-            "caption": NEW_CAPTION,
-            "reply_markup": json.dumps({"inline_keyboard": []})
-        }
-    ).json()
-    print(f"{chat_id}: {result}")
-    time.sleep(3)
-
-print("Termine!")
+print(result)
